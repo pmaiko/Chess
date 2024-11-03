@@ -1,0 +1,1 @@
+{"root":["./src/constants.ts","./src/main.ts","./src/types.ts","./src/vite-env.d.ts","./src/figures/figure.ts","./src/figures/knightfigure.ts","./src/models/cell.ts","./src/utils/createcells.ts","./src/app.vue","./src/components/helloworld.vue","./src/components/theboard.vue","./src/components/thecell.vue"],"errors":true,"version":"5.6.3"}
