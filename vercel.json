@@ -2,6 +2,7 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "server/dist",
+  "ignoreCommand": "vercel build",
   "builds": [
     {
       "src": "server/dist/main.js",
