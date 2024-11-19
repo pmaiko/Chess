@@ -12,6 +12,9 @@
       "dest": "server/dist/main.js"
     }
   ],
+  "installCommand": "npm install --server",
   "buildCommand": "npm run build",
-  "outputDirectory": "server/dist"
+  "devCommand": "npm run build",
+  "outputDirectory": "server/dist",
+  "public": true
 }
