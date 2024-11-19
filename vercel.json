@@ -16,9 +16,9 @@
     }
   ],
   "routes": [
+    { "src": "/server/(.*)", "dest": "server/dist/main.js" },
     { "src": "/favicon.ico", "dest": "dist/favicon.ico" },
     { "src": "/robots.txt", "dest": "dist/robots.txt" },
-    { "src": "/(.*)", "dest": "dist/$1" },
-    { "src": "/server/(.*)", "dest": "server/dist/main.js" }
+    { "src": "/(.*)", "dest": "dist/$1" }
   ]
 }
