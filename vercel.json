@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "startCommand": "node server/dist/main.js",
+  "buildCommand": "npm ci && npm ci --prefix server && npm run front:build && npm run server:build",
   "builds": [
     {
       "src": "server/dist/main.js",
