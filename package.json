@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "npm run front:build && npm run server:build",
+    "build": "npm ci && npm ci --prefix server && npm run front:build && npm run server:build",
     "front:dev": "vite",
     "front:build": "vue-tsc -b && vite build",
     "front:preview": "vite preview",
