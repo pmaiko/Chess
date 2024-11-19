@@ -4,6 +4,13 @@
   "outputDirectory": "server/dist",
   "builds": [
     {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
       "src": "server/dist/main.js",
       "use": "@vercel/node"
     }
