@@ -1,12 +1,13 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
   "builds": [
     {
-      "src": "**/*",
+      "src": "dist/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "server/dist/*.js",
+      "src": "server/dist/**/*",
       "use": "@vercel/node"
     }
   ],
@@ -14,11 +15,11 @@
     {
       "src": "/server/(.*)",
       "dest": "server/dist/main.js",
-      "methods": ["GET", "POST", "PUT", "DELETE"]
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
     },
     {
       "src": "/(.*)",
-      "dest": "dist/index.html"
+      "dest": "dist/$1"
     }
   ]
 }
