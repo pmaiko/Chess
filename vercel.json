@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "npm ci && npm ci --prefix server && npm run front:build && npm run server:build",
   "builds": [
     {
       "src": "server/dist/main.js",
