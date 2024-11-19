@@ -11,9 +11,8 @@
       "use": "@vercel/static"
     },
     {
-      "src": "server/dist/main.js",
-      "use": "@vercel/node",
-      "config": { "distDir": "server/dist" }
+      "src": "server/dist/**",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
