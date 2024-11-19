@@ -3,23 +3,15 @@
   "outputDirectory": "dist",
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
-    },
-    {
       "src": "dist/server/main.js",
       "use": "@vercel/node"
     },
     {
-      "src": "dist/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
-    { "src": "/server/(.*)", "dest": "dist/server/main.js" },
-    { "src": "/favicon.ico", "dest": "dist/favicon.ico" },
-    { "src": "/robots.txt", "dest": "dist/robots.txt" },
     { "src": "/(.*)", "dest": "dist/server/main.js" }
   ]
 }
