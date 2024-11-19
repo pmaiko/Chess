@@ -8,12 +8,12 @@
       "config": { "distDir": "dist" }
     },
     {
-      "src": "dist/**",
-      "use": "@vercel/static"
-    },
-    {
       "src": "dist/server/main.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "dist/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
