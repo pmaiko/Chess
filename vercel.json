@@ -11,7 +11,7 @@
       "use": "@vercel/static"
     },
     {
-      "src": "server/dist/**",
+      "src": "dist/server/main.js",
       "use": "@vercel/node"
     }
   ],
