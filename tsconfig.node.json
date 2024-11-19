@@ -20,6 +20,6 @@
     "noUncheckedSideEffectImports": true
   },
   "include": [
-    "vite.config"
+    "vite.config.ts"
   ]
 }
