@@ -9,7 +9,7 @@
   ],
   "functions": {
     "server/dist/main.js": {
-      "runtime": "@vercel/node"
+      "runtime": "vercel-node"
     }
   }
 }
