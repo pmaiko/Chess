@@ -3,7 +3,7 @@
   "buildCommand": "npm run build",
   "routes": [
     {
-      "src": "/server/(.*)",
+      "src": "/(.*)",
       "dest": "server/dist/main.js"
     }
   ]
