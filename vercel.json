@@ -1,16 +1,15 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "server/dist/main.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "buildCommand": "npm run build",
   "routes": [
     {
       "src": "/server/(.*)",
       "dest": "server/dist/main.js"
     }
   ],
-  "buildCommand": "npm run build"
+  "functions": {
+    "/server/(.*)": {
+      "runtime": "@vercel/node"
+    }
+  }
 }
