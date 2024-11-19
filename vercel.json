@@ -1,17 +1,4 @@
 {
   "version": 2,
-  "buildCommand": "sh vercel.sh",
-  "builds": [
-    {
-      "src": "dist/server/main.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/server/main.js"
-    }
-  ]
+  "buildCommand": "sh vercel.sh"
 }
