@@ -4,16 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "npm ci && npm ci --prefix server && npm run front:build && npm run server:build",
-    "dev": "npm run front:dev & npm run server:dev",
-    "start": "node dist/server/main.js",
-    "front:dev": "vite",
-    "front:build": "vue-tsc -b && vite build",
-    "front:preview": "vite preview",
-    "server:dev": "npm run start:dev --prefix server",
-    "server:build": "npm run build --prefix server"
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@nestjs/core": "^10.4.8",
     "@types/lodash": "^4.17.13",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
