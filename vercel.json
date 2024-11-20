@@ -1,8 +1,11 @@
 {
   "version": 2,
   "outputDirectory": "server/build",
-  "buildCommand": "npm ci && npm run build",
   "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    },
     {
       "src": "server/build/main.js",
       "use": "@vercel/node"
