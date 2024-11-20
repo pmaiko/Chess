@@ -4,7 +4,7 @@
   "builds": [
     {
       "src": "dist/**/*",
-      "use": "@vercel/node-build"
+      "use": "@vercel/static"
     },
     {
       "src": "server/dist/**/*",
