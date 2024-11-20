@@ -3,14 +3,14 @@
   "outputDirectory": "build",
   "builds": [
     {
-      "src": "dist/server/main.js",
+      "src": "build/server/main.js",
       "use": "@now/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/server/main.js"
+      "dest": "build/server/main.js"
     }
   ]
 }
