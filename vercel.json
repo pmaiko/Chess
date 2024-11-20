@@ -4,7 +4,10 @@
   "builds": [
     {
       "src": "server/package.json",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "npm run build"
+      }
     },
     {
       "src": "server/build/main.js",
