@@ -1,4 +1,3 @@
-// build.js
 import { exec } from "child_process";
 
 exec("sh ../build.sh", (err, stdout, stderr) => {
@@ -8,6 +7,6 @@ exec("sh ../build.sh", (err, stdout, stderr) => {
   }
   console.log("Script output:", stdout);
   console.error("Script stderr:", stderr);
-});
 
-import "./build/main.js";
+  import("./build/main.js");
+});
