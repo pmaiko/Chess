@@ -6,12 +6,8 @@
       "src": "server/package.json",
       "use": "@vercel/node",
       "config": {
-        "buildCommand": "npm ci && npm run build"
+        "includeFiles": ["server/build/**"]
       }
-    },
-    {
-      "src": "server/build/main.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
