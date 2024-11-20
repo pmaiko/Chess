@@ -2,12 +2,6 @@
   "version": 2,
   "outputDirectory": "server/build",
   "buildCommand": "sh build.sh",
-  "functions": {
-    "server/build/main.js": {
-      "memory": 3009,
-      "maxDuration": 30
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",

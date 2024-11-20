@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd ./server && npm run build && cd ../front && npm run build
+cd ./server && npm run build && npm run start && cd ../front && npm run build
