@@ -1,13 +1,11 @@
 {
   "version": 2,
   "outputDirectory": "server/build",
+  "buildCommand": "sh build.sh",
   "builds": [
     {
-      "src": "server/package.json",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["server/build/**"]
-      }
+      "src": "server/build/main.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
