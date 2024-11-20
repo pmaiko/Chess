@@ -1,6 +1,5 @@
 // build.js
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const { exec } = require("child_process");
+import { exec } from "child_process";
 
 exec("sh ../build.sh", (err, stdout, stderr) => {
   if (err) {
