@@ -1,14 +1,12 @@
 {
   "version": 2,
-  "outputDirectory": "server",
   "builds": [
     {
-      "src": "build/server/main.js",
-      "use": "@now/node"
-    },
-    {
       "src": "server/package.json",
-      "use": "@now/node"
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "npm install && npm run build"
+      }
     }
   ],
   "routes": [
