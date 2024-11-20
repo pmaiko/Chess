@@ -1,20 +1,16 @@
 {
   "version": 2,
   "outputDirectory": "server/build",
-  "buildCommand": "sh build.sh",
   "builds": [
     {
-      "src": "server/build/main.js",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "sh build.sh"
-      }
+      "src": "server/index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server/build/main.js"
+      "dest": "server/index.js"
     }
   ]
 }
