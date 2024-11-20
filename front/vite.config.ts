@@ -5,7 +5,8 @@ import checker from 'vite-plugin-checker'
 // https://vite.dev/config/
 export default defineConfig({
   build: {
-    outDir: '../build/front',
+    outDir: 'build',
+    emptyOutDir: true,
   },
   server: {
     port: 8881,
