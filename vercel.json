@@ -1,13 +1,11 @@
 {
   "version": 2,
   "outputDirectory": "server/build",
+  "buildCommand": "npm ci && npm run build",
   "builds": [
     {
       "src": "server/build/main.js",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "npm ci && npm run build"
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
