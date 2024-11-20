@@ -5,6 +5,10 @@
     {
       "src": "package.json",
       "use": "@vercel/node"
+    },
+    {
+      "src": "server/build/main.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
