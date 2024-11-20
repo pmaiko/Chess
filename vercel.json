@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "outputDirectory": "build",
+  "buildCommand": "sh build",
   "builds": [
     {
       "src": "build/server/main.js",
