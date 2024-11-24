@@ -4,10 +4,7 @@
   "builds": [
     {
       "src": "server/build/main.js",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "sh build.sh"
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
