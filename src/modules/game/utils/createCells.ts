@@ -1,5 +1,5 @@
-import { COLOR, GRID_SIZE } from '../constants.ts'
-import Cell from '../models/Cell.ts'
+import { COLOR, GRID_SIZE } from '~/modules/game/constants.ts'
+import Cell from '~/modules/game/Cell.ts'
 
 export const createCells = () => {
   const cells = []

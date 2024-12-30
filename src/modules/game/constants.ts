@@ -1,11 +1,3 @@
-import RookFigure from '~/figures/RookFigure.ts'
-import KnightFigure from '~/figures/KnightFigure.ts'
-import BishopFigure from '~/figures/BishopFigure.ts'
-import QueenFigure from '~/figures/QueenFigure.ts'
-import PawnFigure from '~/figures/PawnFigure.ts'
-import KingFigure from '~/figures/KingFigure.ts'
-import { FigureType } from '~/figures/types/FigureInterface.ts'
-
 export const GRID_SIZE = 8
 // export const MATRIX = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(null))
 
@@ -75,12 +67,3 @@ export const FIGURES_POSITIONS_KEYS = [
     `${COLOR.white}.${FIGURE.rook}.001`,
   ],
 ]
-
-export const CLASS_BY_FIGURE_DICTIONARY: Record<FIGURE, FigureType> = {
-  [FIGURE.rook]: RookFigure,
-  [FIGURE.knight]: KnightFigure,
-  [FIGURE.bishop]: BishopFigure,
-  [FIGURE.queen]: QueenFigure,
-  [FIGURE.king]: KingFigure,
-  [FIGURE.pawn]: PawnFigure,
-}

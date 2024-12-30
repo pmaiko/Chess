@@ -1,12 +1,10 @@
-import BaseFigure from '~/figures/BaseFigure.ts'
-import { FigureInterface } from '~/figures/types/FigureInterface.ts'
-import { FIGURE, GRID_SIZE } from '~/constants.ts'
-import { CellsByPositionType } from '~/composables/useGame.ts'
-import { PositionInterface } from '~/figures/types/PositionInterface.ts'
-import { ValidationResultType } from '~/figures/types/BaseFigureInterface.ts'
+import Figure from '~/modules/game/figures/Figure.ts'
+import { FIGURE, GRID_SIZE } from '~/modules/game/constants.ts'
+import type { CellsByPositionType } from '~/modules/game/Cell.ts'
+import type { PositionInterface } from '~/modules/game/types/PositionInterface.ts'
+import type { ValidationResultType } from '~/modules/game/types/ValidationResultType.ts'
 
-
-export default class BishopFigure extends BaseFigure implements FigureInterface {
+export default class BishopFigure extends Figure {
   name = FIGURE.bishop
 
   getMoves = (cellsByPosition: CellsByPositionType, withValidation: boolean, underProtection: boolean): PositionInterface[] => {
@@ -28,28 +26,28 @@ export default class BishopFigure extends BaseFigure implements FigureInterface 
 
     // right top
     for (let i = 1; x + i < GRID_SIZE && y + i < GRID_SIZE; i++) {
-      const validation = BaseFigure.validatePosition({ x: x + i, y: y + i }, cellsByPosition, this.color, underProtection)
+      const validation = Figure.validatePosition({ x: x + i, y: y + i }, cellsByPosition, this.color, underProtection)
       if (pushMoves(validation)) {
         break
       }
     }
     // left top
     for (let i = 1; x - i >= 0 && y + i < GRID_SIZE; i++) {
-      const validation = BaseFigure.validatePosition({ x: x - i, y: y + i }, cellsByPosition, this.color, underProtection)
+      const validation = Figure.validatePosition({ x: x - i, y: y + i }, cellsByPosition, this.color, underProtection)
       if (pushMoves(validation)) {
         break
       }
     }
     // right bottom
     for (let i = 1; x + i < GRID_SIZE && y - i >= 0; i++) {
-      const validation = BaseFigure.validatePosition({ x: x + i, y: y - i }, cellsByPosition, this.color, underProtection)
+      const validation = Figure.validatePosition({ x: x + i, y: y - i }, cellsByPosition, this.color, underProtection)
       if (pushMoves(validation)) {
         break
       }
     }
     // left bottom
     for (let i = 1; x - i >= 0 && y - i >= 0; i++) {
-      const validation = BaseFigure.validatePosition({ x: x - i, y: y - i }, cellsByPosition, this.color, underProtection)
+      const validation = Figure.validatePosition({ x: x - i, y: y - i }, cellsByPosition, this.color, underProtection)
       if (pushMoves(validation)) {
         break
       }

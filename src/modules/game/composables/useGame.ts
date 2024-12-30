@@ -1,16 +1,17 @@
 import { computed, ref } from 'vue'
-import { createCells } from '~/utils/createCells.ts'
-import Cell from '~/models/Cell.ts'
-import { CLASS_BY_FIGURE_DICTIONARY, COLOR, FIGURE, FIGURES_POSITIONS_KEYS } from '~/constants.ts'
-import { getKeyByPosition } from '~/utils/getKeyByPosition.ts'
-import { FigureInterface } from '~/figures/types/FigureInterface.ts'
-import { useCellsStates } from '~/composables/useCellsStates.ts'
-import { movesToDictionary } from '~/utils/movesToDictionary.ts'
 
-export type CellsByPositionType = Record<string, Cell>
+import { createCells } from '../utils/createCells.ts'
+import type { CellsByPositionType } from '../Cell.ts'
+import type Cell from '../Cell.ts'
+import { FIGURES_POSITIONS_KEYS } from '../constants.ts'
+import { getKeyByPosition } from '../utils/getKeyByPosition.ts'
+import { movesToDictionary } from '../utils/movesToDictionary.ts'
+
+import type Figure from '~/modules/game/figures/Figure.ts'
+import { createFigure } from '~/modules/game/utils/createFigure.ts'
 
 export const useGame = () => {
-  const cells = ref(createCells())
+  const cells = ref<Array<Cell>>(createCells())
   const cellsByPosition = computed(() => {
     return cells.value.reduce((acc, cell) => {
       acc[getKeyByPosition(cell.position)] = cell
@@ -19,21 +20,20 @@ export const useGame = () => {
   })
 
   const startGame = () => {
-    cells.value = cells.value.map((cell: Cell) => {
+    cells.value = cells.value.map((cell) => {
       const key = FIGURES_POSITIONS_KEYS[cell.position.y][cell.position.x]
       if (key) {
-        const [color, figure, number]: [COLOR, FIGURE, FigureInterface['number']] = key.split('.')
-
-        cell.figure = new CLASS_BY_FIGURE_DICTIONARY[figure]({ cellId: cell.id, number, color, position: cell.position })
+        const [color, figure, number] = key.split('.')
+        cell.figure = createFigure(figure, { cellId: cell.id, number, color, position: cell.position })
       }
 
       return cell
     })
   }
 
-  const pickedFigure = ref<FigureInterface | null>(null)
+  const pickedFigure = ref<Figure | null>(null)
 
-  const captureFigures = ref<FigureInterface[]>([])
+  const captureFigures = ref<Figure[]>([])
 
   const pickFigure = (cell: Cell) => {
     pickedFigure.value = null
@@ -70,18 +70,10 @@ export const useGame = () => {
     pickedFigure.value = null
   }
 
-  const cellsWithStates = computed(() => {
-    return useCellsStates(cellsByPosition, pickedFigure).cellsWithStates
-  })
-
   return {
     cells,
     cellsByPosition,
-
-    cellsWithStates,
-
     pickedFigure,
-
     captureFigures,
 
     startGame,

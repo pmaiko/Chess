@@ -1,29 +1,23 @@
-import { FigureInterface } from '~/figures/types/FigureInterface.ts'
-import BaseFigure from '~/figures/BaseFigure.ts'
-import { COLOR, COLOR_REVERSE, FIGURE, GRID_SIZE } from '~/constants.ts'
-import { CellsByPositionType } from '~/composables/useGame.ts'
-import { PositionInterface } from '~/figures/types/PositionInterface.ts'
-import { getKeyByPosition } from '~/utils/getKeyByPosition.ts'
+import Figure from '~/modules/game/figures/Figure.ts'
+import { COLOR, COLOR_REVERSE, FIGURE, GRID_SIZE } from '~/modules/game/constants.ts'
+import type { CellsByPositionType } from '~/modules/game/Cell.ts'
+import type { PositionInterface } from '~/modules/game/types/PositionInterface.ts'
+import { getKeyByPosition } from '~/modules/game/utils/getKeyByPosition.ts'
 
-export interface PawnFigureInterface extends FigureInterface {
-  isWhite: boolean,
-  direction: number
-}
-
-export default class PawnFigure extends BaseFigure implements PawnFigureInterface {
+export default class PawnFigure extends Figure {
   name = FIGURE.pawn
-  isWhite
-  direction
+  isWhite: boolean
+  direction: number
 
-  constructor ({ cellId, number, color, position }: {cellId: FigureInterface['cellId'], number: FigureInterface['number'], color: FigureInterface['color'], position: FigureInterface['position']}) {
-    super({
-      cellId,
-      number,
-      color,
-      position,
-    })
+  constructor (
+    cellId: string,
+    number: string,
+    color: COLOR,
+    position: PositionInterface,
+  ) {
+    super(cellId, number, color, position)
 
-    this.isWhite = this.color === COLOR.white
+    this.isWhite = color === COLOR.white
     this.direction = this.isWhite ? -1 : 1
   }
 

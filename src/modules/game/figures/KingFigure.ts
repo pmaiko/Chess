@@ -1,13 +1,13 @@
-import BaseFigure from '~/figures/BaseFigure.ts'
-import { FigureInterface } from '~/figures/types/FigureInterface.ts'
-import { COLOR_REVERSE, FIGURE, GRID_SIZE } from '~/constants.ts'
-import { CellsByPositionType } from '~/composables/useGame.ts'
-import { PositionInterface } from '~/figures/types/PositionInterface.ts'
 import { toRaw } from 'vue'
-import { getKeyByPosition } from '~/utils/getKeyByPosition.ts'
-import { movesToDictionary } from '~/utils/movesToDictionary.ts'
 
-export default class KingFigure extends BaseFigure implements FigureInterface {
+import type { CellsByPositionType } from '~/modules/game/Cell.ts'
+import Figure from '~/modules/game/figures/Figure.ts'
+import { COLOR_REVERSE, FIGURE, GRID_SIZE } from '~/modules/game/constants.ts'
+import type { PositionInterface } from '~/modules/game/types/PositionInterface.ts'
+import { movesToDictionary } from '~/modules/game/utils/movesToDictionary.ts'
+import { getKeyByPosition } from '~/modules/game/utils/getKeyByPosition.ts'
+
+export default class KingFigure extends Figure {
   name = FIGURE.king
 
   // TODO взятие пешки на проходе
@@ -46,7 +46,7 @@ export default class KingFigure extends BaseFigure implements FigureInterface {
       if (
         move.x >= 0 && move.x < GRID_SIZE &&
         move.y >= 0 && move.y < GRID_SIZE &&
-        !!BaseFigure.validatePosition(move, cellsByPosition, this.color, underProtection).position &&
+        !!Figure.validatePosition(move, cellsByPosition, this.color, underProtection).position &&
         !enemyFiguresMoves[getKeyByPosition(move)] &&
         withValidation
       ) {

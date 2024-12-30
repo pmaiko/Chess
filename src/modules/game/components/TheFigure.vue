@@ -14,10 +14,10 @@
 </template>
 
 <script setup lang="ts">
-  import { FigureInterface } from '~/figures/types/FigureInterface.ts'
+  import type Figure from '~/modules/game/figures/Figure.ts'
 
   const { figure } = defineProps<{
-    figure: FigureInterface
+    figure: Figure
   }>()
 </script>
 

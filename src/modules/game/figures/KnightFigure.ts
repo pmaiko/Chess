@@ -1,10 +1,9 @@
-import BaseFigure from '~/figures/BaseFigure.ts'
-import { FigureInterface } from '~/figures/types/FigureInterface.ts'
-import { FIGURE, GRID_SIZE } from '~/constants.ts'
-import { CellsByPositionType } from '~/composables/useGame.ts'
-import { PositionInterface } from '~/figures/types/PositionInterface.ts'
+import Figure from '~/modules/game/figures/Figure.ts'
+import { FIGURE, GRID_SIZE } from '~/modules/game/constants.ts'
+import type { CellsByPositionType } from '~/modules/game/Cell.ts'
+import type { PositionInterface } from '~/modules/game/types/PositionInterface.ts'
 
-export default class KnightFigure extends BaseFigure implements FigureInterface {
+export default class KnightFigure extends Figure {
   name = FIGURE.knight
 
   getMoves = (cellsByPosition: CellsByPositionType, withValidation: boolean, underProtection: boolean): PositionInterface[] => {
@@ -25,7 +24,7 @@ export default class KnightFigure extends BaseFigure implements FigureInterface 
       return (
         move.x >= 0 && move.x < GRID_SIZE &&
         move.y >= 0 && move.y < GRID_SIZE &&
-        !!BaseFigure.validatePosition(move, cellsByPosition, this.color, underProtection).position && withValidation
+        !!Figure.validatePosition(move, cellsByPosition, this.color, underProtection).position && withValidation
       )
     })
   }

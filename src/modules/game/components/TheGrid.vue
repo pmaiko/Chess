@@ -9,7 +9,7 @@
         :key="`x${cell.position.x}; y${cell.position.y}`"
         :data-position="`x${cell.position.x}; y${cell.position.y}`"
         :cell="cell"
-        :states="cellsWithStates.value[getKeyByPosition(cell.position)]"
+        :states="cellsStates.value[getKeyByPosition(cell.position)]"
         class="the-grid__list-item"
         @dragover.prevent
         @dragenter.prevent="handlerDropEnter"
@@ -26,22 +26,23 @@
       </TheCell>
     </div>
   </div>
-  <pre>{{ captureFigures }}</pre>
 </template>
 
 <script setup lang="ts">
+  import { getKeyByPosition } from '../utils/getKeyByPosition.ts'
+
   import TheCell from './TheCell.vue'
-  import TheFigure from '~/components/TheFigure.vue'
-  import { useGame } from '~/composables/useGame.ts'
-  import { onMounted } from 'vue'
+  import TheFigure from './TheFigure.vue'
+
   import { useDrag } from '~/composables/useDrag.ts'
-  import { getKeyByPosition } from '~/utils/getKeyByPosition.ts'
 
-  const { cells, cellsWithStates, captureFigures, startGame, pickFigure, putFigure } = useGame()
+  const props = defineProps<{
+    cells: any
+    cellsStates: any
+  }>()
 
-  onMounted(() => {
-    startGame()
-  })
+  console.log(props)
+  const $emit = defineEmits(['_dragStart', '_drop'])
 
   const {
     handlerDropEnter,
@@ -50,16 +51,20 @@
 
     handlerDragStart,
   } = useDrag({
-    handlerPickFigure: pickFigure,
-    handlerPutFigure: putFigure,
+    dragStartFunction: (data: unknown) => {
+      $emit('_dragStart', data)
+    },
+    dropFunction: (data: unknown) => {
+      $emit('_drop', data)
+    },
   })
 </script>
 
 <style lang="scss">
   .the-grid {
     max-width: calc((1 / 1) * (100dvh));
-    padding: 2rem;
     aspect-ratio: 1 / 1;
+    padding: 1rem;
 
     &__list {
       width: 100%;

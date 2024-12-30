@@ -13,8 +13,8 @@
 <script setup lang="ts">
   import { COLOR, GRID_SIZE } from '../constants.ts'
   import { computed } from 'vue'
-  import Cell from '../models/Cell.ts'
-  import { StatesInterface } from '~/composables/useCellsStates.ts'
+  import Cell from '../Cell.ts'
+  import { StatesInterface } from '../composables/useCellsStates.ts'
 
   const { cell, states } = defineProps<{
     cell: Cell,
