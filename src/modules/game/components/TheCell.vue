@@ -11,10 +11,12 @@
 </template>
 
 <script setup lang="ts">
-  import { COLOR, GRID_SIZE } from '../constants.ts'
   import { computed } from 'vue'
-  import Cell from '../Cell.ts'
-  import { StatesInterface } from '../composables/useCellsStates.ts'
+
+  import { COLOR, GRID_SIZE } from '../constants.ts'
+  import type { StatesInterface } from '../composables/useCellsStates.ts'
+
+  import type Cell from '~/modules/game/entities/Cell.ts'
 
   const { cell, states } = defineProps<{
     cell: Cell,

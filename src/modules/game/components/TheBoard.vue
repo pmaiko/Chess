@@ -1,16 +1,16 @@
 <template>
   <div
     v-if="cells.length"
-    class="the-grid"
+    class="the-board"
   >
-    <div class="the-grid__list">
+    <div class="the-board__list">
       <TheCell
         v-for="cell in cells"
         :key="`x${cell.position.x}; y${cell.position.y}`"
         :data-position="`x${cell.position.x}; y${cell.position.y}`"
         :cell="cell"
-        :states="cellsStates.value[getKeyByPosition(cell.position)]"
-        class="the-grid__list-item"
+        :states="cellsStates.value[cell.position.getKey()]"
+        class="the-board__list-item"
         @dragover.prevent
         @dragenter.prevent="handlerDropEnter"
         @dragleave.prevent="handlerDropLeave"
@@ -29,19 +29,16 @@
 </template>
 
 <script setup lang="ts">
-  import { getKeyByPosition } from '../utils/getKeyByPosition.ts'
-
   import TheCell from './TheCell.vue'
   import TheFigure from './TheFigure.vue'
 
   import { useDrag } from '~/composables/useDrag.ts'
 
-  const props = defineProps<{
+  defineProps<{
     cells: any
     cellsStates: any
   }>()
 
-  console.log(props)
   const $emit = defineEmits(['_dragStart', '_drop'])
 
   const {
@@ -61,7 +58,7 @@
 </script>
 
 <style lang="scss">
-  .the-grid {
+  .the-board {
     max-width: calc((1 / 1) * (100dvh));
     aspect-ratio: 1 / 1;
     padding: 1rem;

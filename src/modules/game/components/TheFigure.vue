@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import type Figure from '~/modules/game/figures/Figure.ts'
+  import type Figure from '~/modules/game/entities/figures/Figure.ts'
 
   const { figure } = defineProps<{
     figure: Figure

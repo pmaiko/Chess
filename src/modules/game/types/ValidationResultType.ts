@@ -1,4 +1,4 @@
-import type { PositionInterface } from '~/modules/game/types/PositionInterface.ts'
+import type { PositionInterface } from '~/modules/game/services/PositionService.ts'
 
 export type ValidationResultType =
   | { break: true; position: PositionInterface | null }

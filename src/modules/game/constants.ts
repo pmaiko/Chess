@@ -21,7 +21,7 @@ export enum FIGURE {
   pawn = 'pawn' // Пешка
 }
 
-export const FIGURES_POSITIONS_KEYS = [
+export const INITIAL_FIGURE_POSITIONS = [
   [
     `${COLOR.black}.${FIGURE.rook}.000`,
     `${COLOR.black}.${FIGURE.knight}.000`,

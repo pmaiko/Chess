@@ -5,7 +5,7 @@
     </div>
     <div class="the-game__col the-game__col_center">
       <TheGrid
-        :cells="cells"
+        :cells="Object.values(cells)"
         :cellsStates="cellsStates"
         @_dragStart="pickFigure"
         @_drop="putFigure"
@@ -25,13 +25,13 @@
   import { useGame } from '../composables/useGame.ts'
   import { useCellsStates } from '../composables/useCellsStates.ts'
 
-  import TheGrid from './TheGrid.vue'
+  import TheGrid from './TheBoard.vue'
   import TheDashboard from './TheDashboard.vue'
 
-  const { cells, cellsByPosition, pickedFigure, captureFigures, startGame, pickFigure, putFigure } = useGame()
+  const { cells, pickedFigure, captureFigures, startGame, pickFigure, putFigure } = useGame()
 
   const cellsStates = computed(() => {
-    return useCellsStates(cellsByPosition, pickedFigure)
+    return useCellsStates(cells, pickedFigure)
   })
 
   onMounted(() => {

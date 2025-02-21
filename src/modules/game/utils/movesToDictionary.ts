@@ -1,6 +1,5 @@
-import type { PositionInterface } from '~/modules/game/types/PositionInterface.ts'
-import { getKeyByPosition } from '~/modules/game/utils/getKeyByPosition.ts'
+import type { PositionInterface } from '~/modules/game/services/PositionService.ts'
 
 export const movesToDictionary = (moves: PositionInterface[]) => {
-  return Object.fromEntries(moves.map(position => [getKeyByPosition(position), true]))
+  return Object.fromEntries(moves.map(position => [position.getKey(), true]))
 }
