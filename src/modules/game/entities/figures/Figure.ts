@@ -1,8 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 
-import { type COLOR, type FIGURE, COLOR_REVERSE } from '~/modules/game/constants.ts'
-import type { ValidationResultType } from '~/modules/game/types/ValidationResultType.ts'
-import type { PositionInterface , MoveInterface } from '~/modules/game/services/PositionService.ts'
+import type { COLOR, FIGURE } from '~/modules/game/constants.ts'
+import type { PositionInterface, MoveInterface } from '~/modules/game/services/PositionService.ts'
 import type { CellsMap } from '~/modules/game/entities/Board.ts'
 import { FindValidCapturePositionService } from '~/modules/game/services/FindValidCapturePositionService.ts'
 import { FindValidPositionService } from '~/modules/game/services/FindValidPositionService.ts'
@@ -69,34 +68,6 @@ export default abstract class Figure {
     return {
       moves,
       movesByDirection,
-    }
-  }
-
-  static validatePosition = (
-    position: PositionInterface,
-    cells: CellsMap,
-    color: COLOR,
-    underProtection: boolean,
-  ): ValidationResultType => {
-    const cell = cells[position.getKey()]
-
-    if (cell?.figure?.color === color) {
-      return {
-        break: true,
-        position: underProtection ? position : null,
-      }
-    }
-
-    if (cell?.figure?.color === COLOR_REVERSE[color]) {
-      return {
-        break: true,
-        position: position,
-      }
-    }
-
-    return {
-      break: false,
-      position,
     }
   }
 }

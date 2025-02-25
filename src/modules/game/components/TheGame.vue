@@ -43,10 +43,15 @@
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr;
     gap: 24px;
+    height: 100%;
 
     &__col {
       display: grid;
       justify-content: center;
+
+      &_center {
+        align-items: center;
+      }
     }
   }
 </style>
