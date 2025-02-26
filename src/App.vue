@@ -1,10 +1,19 @@
 <template>
   <div class="wrapper">
-    <TheGame />
+    <nav>
+      <RouterLink to="/">
+        Go to Home
+      </RouterLink>
+      <RouterLink to="/game">
+        Go to Game
+      </RouterLink>
+    </nav>
+    <main>
+      <RouterView />
+    </main>
   </div>
 </template>
 <script setup lang="ts">
-  import TheGame from '~/modules/game/components/TheGame.vue'
 </script>
 <style lang="scss">
   .wrapper {
