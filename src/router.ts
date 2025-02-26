@@ -1,11 +1,11 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
-import HomeView from './pages/WelcomePage.vue'
+import MainPage from './pages/MainPage.vue'
 
 import TheGame from '~/modules/game/components/TheGame.vue'
 
 const routes = [
-  { path: '/', component: HomeView },
+  { path: '/', component: MainPage },
   { path: '/game', component: TheGame },
 ]
 

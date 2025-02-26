@@ -34,6 +34,7 @@ export default ({ mode }: ResolvedConfig) => {
     resolve: {
       alias: {
         '~': '/src',
+        '@': '/src',
       },
     },
   })

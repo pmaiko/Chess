@@ -32,7 +32,7 @@
   import TheCell from './TheCell.vue'
   import TheFigure from './TheFigure.vue'
 
-  import { useDrag } from '~/composables/useDrag.ts'
+  import { useDrag } from '~/common/composables/useDrag.ts'
 
   defineProps<{
     cells: any

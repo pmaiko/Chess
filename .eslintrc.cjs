@@ -75,7 +75,7 @@ module.exports = {
     // vue
     'vue/max-attributes-per-line': ['error', { 'singleline': { 'max': 1 }, 'multiline': { 'max': 1 } }],
     'vue/multiline-html-element-content-newline': ['error', { 'ignoreWhenEmpty': true, 'allowEmptyLines': false }],
-    'vue/script-indent': ['error', 2, { 'baseIndent': 1, 'switchCase': 0, 'ignores': [] }],
+    'vue/script-indent': ['error', 0, { 'baseIndent': 1, 'switchCase': 0, 'ignores': [] }],
     'vue/html-indent': ['error', 2, { 'attribute': 1, 'baseIndent': 1, 'closeBracket': 0, 'alignAttributesVertically': true, 'ignores': [] }],
     'vue/html-self-closing': ['error', { 'html': { 'void': 'never', 'normal': 'always', 'component': 'always' }, 'svg': 'always', 'math': 'always' }],
     'vue/html-closing-bracket-spacing': ['error', { 'selfClosingTag': 'always' }],
