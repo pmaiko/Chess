@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import TheLobby from '~/modules/lobby/components/TheLobby.vue';
+import TheLobby from '~/features/lobby/components/TheLobby.vue';
 </script>
 
 <style scoped>
